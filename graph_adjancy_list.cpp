@@ -47,6 +47,46 @@ int main(){
     return 0;
 }
 
-//3rd
-//2nd 
-//9th 
+//--------------------------------Another Example: ----------------------------------------------------//
+
+// https://www.programiz.com/dsa/graph-adjacency-list 
+//Here we are using a list vector of lists: vector<int> adj[v] --> v is the number of vertices, 
+
+/* The adjacency list representation of a graph is linked list representation. In this representation we have an array of lists The array size is V. Here V is the number of vertices. In other words, we can say that we have an array to store V number of different lists. If a list header is vertex u, then it signifies that it will hold all of the adjacent vertices of u.
+*/ 
+
+// Adjascency List representation in C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Add edge
+void addEdge(vector<int> adj[], int s, int d) {
+  adj[s].push_back(d);
+  adj[d].push_back(s);
+}
+
+// Print the graph
+void printGraph(vector<int> adj[], int V) {
+  for (int d = 0; d < V; ++d) {
+    cout << "\n Vertex "
+       << d << ":";
+    for (auto x : adj[d])
+      cout << "-> " << x;
+    printf("\n");
+  }
+}
+
+int main() {
+  int V = 5;
+
+  // Create a graph
+  vector<int> adj[V];
+
+  // Add edges
+  addEdge(adj, 0, 1);
+  addEdge(adj, 0, 2);
+  addEdge(adj, 0, 3);
+  addEdge(adj, 1, 2);
+  printGraph(adj, V);
+}
